@@ -1,0 +1,113 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"sway/workspaces",
+	],
+
+	"modules-center": [
+		"custom/myclock"
+	],
+
+	"modules-right": [
+		"pulseaudio",
+		"custom/spacer",
+		"backlight",
+		"custom/spacer",
+		"network",
+		"custom/spacer",
+		"battery",
+		"custom/spacer",
+		"tray"
+	],
+
+	"custom/spacer": {
+		"format": " : ",
+		"tooltip": false
+	},
+
+	"custom/myclock": {
+		"format": "{}",
+		"exec": "date",
+		"restart-interval": 1,
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pavucontrol",
+		"on-click-right": "pamixer -t"	
+	},
+	"memory": {
+		"interval": 5,
+		"format": "Mem {}%"
+	},
+	"cpu": {
+		"interval": 5,
+		"on-click": "emacsclient -c -e '(proced)'",
+		"format": "CPU {usage:2}%"
+	},
+
+	"tempurature": {
+		"critical-threshhold": 80,
+		"format": "{tempuratureC}°C {icon}",
+		"format-icons": ["", "", ""],
+	},
+
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capatcity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"tray": {
+		"icon-size": 20
+	},
+	"network": {
+		"interface": "wlp0s20f3",
+		"format": "{ifname}",
+		"format-wifi": "({signalStrength}%) ",
+		"format-ethernet": "{ifname} ",
+		"format-disconnected": "", //An empty format will hide the module.
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"on-click": "emacsclient -c -e '(view-file \"~/Documents/tech-personal-notes/nmcli-help.org\")'",
+		"max-length": 50
+	},
+	"backlight": {
+	    	"device": "intel_backlight",
+	        "format": "{percent}% {icon}",
+		"format-icons": ["", ""]
+		}
+}
