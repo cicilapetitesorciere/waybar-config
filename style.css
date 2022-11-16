@@ -5,21 +5,12 @@
 }
 
 window#waybar {
-	background: #292b2e;
+	background: #251e3e;
 	color: #fdf6e3;
 }
 
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
-#tray {
-	background: #1a1a1a;
+#workspaces {
+	background: #851e3e;
 }
 
 #workspaces button {
